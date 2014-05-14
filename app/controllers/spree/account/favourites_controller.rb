@@ -8,7 +8,7 @@ module Spree
         @user = try_spree_current_user
         if @user
           @line_items_by_variant = Spree::Variant.includes(line_items: [:order])
-            .where(['spree_orders.email = ?','francisco@yourgrocer.com.au'])
+            .where(['spree_orders.email = ?', @user.email])
             .where(['spree_orders.completed_at IS NOT NULL'])
             .references(:orders).group('spree_variants.id')
             .order('COUNT(spree_line_items.id) DESC').page(params[:page] || 1).per(15)
