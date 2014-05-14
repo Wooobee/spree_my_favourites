@@ -18,4 +18,4 @@
             = link_to Spree.t(:my_orders), account_orders_path
         %li{class: "#{selected == :favourites ? 'selected' : ''}"}
           %h3
-            = Spree.t(:my_favourites)
+            = link_to Spree.t(:my_favourites), account_favourites_path
