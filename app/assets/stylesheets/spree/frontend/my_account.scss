@@ -37,3 +37,19 @@
     }
   }
 }
+
+@media screen and (max-width: '768px') {
+
+  #my-account table {
+
+    td.favourite-image {
+      display: none !important;
+    }
+
+    th, td {
+      width: 100% !important;
+      display: block;
+      text-align: center;
+    }
+  }
+}

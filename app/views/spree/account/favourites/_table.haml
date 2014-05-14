@@ -6,5 +6,10 @@
   %tbody
   - favourites.each do |favourite|
     %tr
+      %td.favourite-image
+        - if variant.images.length == 0
+          = link_to mini_image(variant.product), variant.product
+        - else
+          = link_to image_tag(variant.images.first.attachment.url(:small)), variant.product
       %td.favourite-description= favourite[:variant].name
       %td.favourite-number-orders= favourite[:number_of_orders]
