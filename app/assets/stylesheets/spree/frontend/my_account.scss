@@ -19,4 +19,21 @@
       background: #d9d9db;
     }
   }
+
+  .account-my-favourites {
+
+    table {
+
+      width: 100%;
+
+      th.favourite-description, td.favourite-description {
+        width: 70%;
+      }
+
+      th.favourite-number-orders, td.favourite-number-orders {
+        width: 30%;
+        text-align: center;
+      }
+    }
+  }
 }
