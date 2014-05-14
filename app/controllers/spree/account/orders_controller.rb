@@ -5,10 +5,14 @@ module Spree
       def index
         if try_spree_current_user
           @user = try_spree_current_user
-          @orders = @user.orders.complete
+          @orders = @user.orders.complete.order('completed_at desc')
         else
           unauthorized
         end
+      end
+
+      def accurate_title
+        Spree.t(:my_account)
       end
 
     end

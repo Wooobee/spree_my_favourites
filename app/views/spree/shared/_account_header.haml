@@ -1,0 +1,10 @@
+%h1= accurate_title
+
+.account-summary(data-hook="account_summary")
+  %dl#user-info
+    %dt= Spree.t(:email)
+    %dd
+      = @user.email
+      (
+      = link_to Spree.t(:edit), spree.edit_account_path
+      )
