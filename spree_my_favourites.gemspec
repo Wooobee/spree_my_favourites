@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_my_favourites'
-  s.version     = '2.2.2'
+  s.version     = '2.2.3'
   s.summary     = 'Adds My Favourites tab to My Account section of the website'
   s.required_ruby_version = '>= 2.0.0'
 
