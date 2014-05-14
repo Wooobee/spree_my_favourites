@@ -4,5 +4,7 @@
   .account-my-favourites(data-hook="account_my_favourites")
     - if @favourites.present?
       = render partial: "spree/account/favourites/table", locals: {favourites: @favourites}
+      
+      = paginate(@line_items_by_variant)
     - else
       %p= Spree.t(:you_have_no_orders_yet)

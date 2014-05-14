@@ -7,17 +7,16 @@ module Spree
       def index
         @user = try_spree_current_user
         if @user
-          grouped_variants = Spree::Variant.includes(line_items: [:order])
+          @line_items_by_variant = Spree::Variant.includes(line_items: [:order])
             .where(['spree_orders.email = ?','francisco@yourgrocer.com.au'])
             .where(['spree_orders.completed_at IS NOT NULL'])
             .references(:orders).group('spree_variants.id')
-            .order('COUNT(spree_line_items.id) DESC').count('spree_line_items.id')
+            .order('COUNT(spree_line_items.id) DESC').page(params[:page] || 1).per(15)
 
           @favourites = []
-          grouped_variants.each do |variant_id, number_of_orders| 
+          @line_items_by_variant.count('spree_line_items.id').each do |variant_id, number_of_orders| 
             @favourites << {variant: Spree::Variant.find(variant_id), number_of_orders: number_of_orders}
           end
-          @favourites
         else
           unauthorized
         end
