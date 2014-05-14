@@ -3,15 +3,6 @@
 
   .account-my-favourites(data-hook="account_my_favourites")
     - if @favourites.present?
-      %table.favourites-summary
-        %thead
-          %tr
-            %th.favourite-description= Spree.t(:name)
-            %th.favourite-number-orders= Spree.t(:number_of_orders)
-        %tbody
-          - @favourites.each do |favourite|
-            %tr
-              %td.favourite-description= favourite[:variant].name
-              %td.favourite-number-orders= favourite[:number_of_orders]
+      = render partial: "spree/account/favourites/table", locals: {favourites: @favourites}
     - else
       %p= Spree.t(:you_have_no_orders_yet)
