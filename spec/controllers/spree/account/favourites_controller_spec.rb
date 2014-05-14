@@ -16,7 +16,7 @@ describe Spree::Account::FavouritesController do
     it 'should redirect to login if user is not logged in' do
       controller.stub(:spree_current_user).and_return nil
       spree_get :index
-      response.status.should == 401
+      response.should redirect_to(spree.login_path)
     end
 
   end

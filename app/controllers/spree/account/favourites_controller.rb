@@ -2,6 +2,8 @@ module Spree
   module Account
     class FavouritesController < Spree::StoreController
 
+      before_filter :check_logged_in_user
+
       def index
         @user = try_spree_current_user
         if @user
@@ -20,6 +22,12 @@ module Spree
         else
           unauthorized
         end
+      end
+
+      private
+
+      def check_logged_in_user
+        redirect_to spree_login_path unless try_spree_current_user
       end
 
     end
