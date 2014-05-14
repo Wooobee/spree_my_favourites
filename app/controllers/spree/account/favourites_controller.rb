@@ -7,18 +7,17 @@ module Spree
       def index
         @user = try_spree_current_user
         if @user
-          line_items = Spree::LineItem.includes(:variant, order: [:user]).where(['spree_orders.user_id = ?', @user.id]).all
-          ordered_items = line_items.inject({}) do |result, line_item|
-            if result[line_item.variant.sku]
-              result[line_item.variant.sku][:number_of_orders] = result[line_item.variant.sku][:number_of_orders] + 1
-            else
-              result[line_item.variant.sku] = {variant: line_item.variant, number_of_orders: 1}
-            end
-            result
-          end
+          grouped_variants = Spree::Variant.includes(line_items: [:order])
+            .where(['spree_orders.email = ?','francisco@yourgrocer.com.au'])
+            .where(['spree_orders.completed_at IS NOT NULL'])
+            .references(:orders).group('spree_variants.id')
+            .order('COUNT(spree_line_items.id) DESC').count('spree_line_items.id')
 
-          @favourites = ordered_items.values
-          @favourites = @favourites.sort_by{|favourite| favourite[:number_of_orders]}.reverse
+          @favourites = []
+          grouped_variants.each do |variant_id, number_of_orders| 
+            @favourites << {variant: Spree::Variant.find(variant_id), number_of_orders: number_of_orders}
+          end
+          @favourites
         else
           unauthorized
         end
