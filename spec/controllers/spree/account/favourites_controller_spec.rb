@@ -13,13 +13,6 @@ describe Spree::Account::FavouritesController do
       controller.stub :check_authorization
     end
 
-    it 'should render all items customer ordered' do
-      pending
-      spree_get :index
-      assigns(:user).should == user
-      assigns(:orders).should == complete_orders
-    end
-
     it 'should redirect to login if user is not logged in' do
       controller.stub(:spree_current_user).and_return nil
       spree_get :index

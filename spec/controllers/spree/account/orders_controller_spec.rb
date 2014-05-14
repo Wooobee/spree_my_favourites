@@ -4,7 +4,8 @@ describe Spree::Account::OrdersController do
 
   describe "index" do
 
-    let(:complete_orders) { double(Array) }
+    let(:sorted_orders) { double(Array) }
+    let(:complete_orders) { double(Array, order: sorted_orders) }
     let(:user_orders) { double(Array, complete: complete_orders) }
     let(:user) { mock_model Spree::User, :last_incomplete_spree_order => nil, :has_spree_role? => true, :spree_api_key => 'fake', :orders => user_orders }
 
@@ -16,7 +17,7 @@ describe Spree::Account::OrdersController do
     it 'should render current users orders' do
       spree_get :index
       assigns(:user).should == user
-      assigns(:orders).should == complete_orders
+      assigns(:orders).should == sorted_orders
     end
 
     it 'should redirect to login if user is not logged in' do
