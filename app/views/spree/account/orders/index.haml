@@ -1,2 +1,3 @@
-= render partial: 'spree/shared/account_header'
-= render partial: 'spree/shared/user_orders'
+#my-account
+  = render partial: 'spree/shared/account_header', locals: {selected: :orders}
+  = render partial: 'spree/shared/user_orders'

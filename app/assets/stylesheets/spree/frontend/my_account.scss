@@ -1,0 +1,22 @@
+#my-account {
+
+  #account-nav {
+    margin: 0;
+  }
+
+  nav ul {
+    list-style: none;
+    margin-bottom: 0;
+
+    li {
+      background: #f0f0f0;
+      margin: 0;
+      padding: 10px 15px;
+      display: inline-block;
+    }
+
+    li.selected {
+      background: #d9d9db;
+    }
+  }
+}

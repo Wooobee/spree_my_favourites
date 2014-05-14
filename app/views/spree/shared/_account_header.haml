@@ -8,3 +8,14 @@
       (
       = link_to Spree.t(:edit), spree.edit_account_path
       )
+
+.row#account-nav
+  .columns.six.alpha.omega
+    %nav
+      %ul
+        %li{class: "#{selected == :orders ? 'selected' : ''}"}
+          %h3
+            = link_to Spree.t(:my_orders), account_orders_path
+        %li{class: "#{selected == :favourites ? 'selected' : ''}"}
+          %h3
+            = Spree.t(:my_favourites)

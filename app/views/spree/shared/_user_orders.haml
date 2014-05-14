@@ -1,6 +1,4 @@
 .account-my-orders(data-hook="account_my_orders")
-
-  %h3= Spree.t(:my_orders)
   - if @orders.present?
     %table.order-summary
       %thead
