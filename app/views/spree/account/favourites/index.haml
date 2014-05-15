@@ -5,6 +5,6 @@
     - if @favourites.present?
       = render partial: "spree/account/favourites/table", locals: {favourites: @favourites}
       
-      = paginate(@line_items_by_variant)
+      = paginate(@favourites)
     - else
       %p= Spree.t(:you_have_no_orders_yet)
