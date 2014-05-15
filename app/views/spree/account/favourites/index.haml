@@ -3,7 +3,7 @@
 
   .account-my-favourites(data-hook="account_my_favourites")
     - if @favourites.present?
-      = render partial: "spree/account/favourites/table", locals: {favourites: @favourites}
+      = render partial: "spree/shared/user_favourites_table", locals: {favourites: @favourites}
       
       = paginate(@favourites)
     - else
