@@ -1,15 +1,17 @@
 %table.favourites-summary
   %thead
-  %tr
-    %th.favourite-description= Spree.t(:name)
-    %th.favourite-number-orders= Spree.t(:number_of_orders)
-  %tbody
-  - favourites.each do |favourite|
     %tr
-      %td.favourite-image
-        - if variant.images.length == 0
-          = link_to mini_image(variant.product), variant.product
-        - else
-          = link_to image_tag(variant.images.first.attachment.url(:small)), variant.product
-      %td.favourite-description= favourite[:variant].name
-      %td.favourite-number-orders= favourite[:number_of_orders]
+      %th.favourite-image= Spree.t(:name)
+      %th.favourite-description= Spree.t(:name)
+      %th.favourite-price= Spree.t(:price)
+  %tbody
+    - favourites.each do |favourite|
+      - variant = favourite[:variant]
+      %tr
+        %td.favourite-image
+          - if variant.images.length == 0
+            = link_to mini_image(variant.product), variant.product
+          - else
+            = link_to image_tag(variant.images.first.attachment.url(:mini)), variant.product
+        %td.favourite-description= variant.name
+        %td.favourite-price= display_price(variant)

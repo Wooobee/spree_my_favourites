@@ -22,15 +22,23 @@
 
   .account-my-favourites {
 
+    nav.pagination {
+      margin-top: 10px;
+    }
+
     table {
 
       width: 100%;
 
-      th.favourite-description, td.favourite-description {
-        width: 70%;
+      th.favourite-image, td.favourite-image {
+        width: 20%;
       }
 
-      th.favourite-number-orders, td.favourite-number-orders {
+      th.favourite-description, td.favourite-description {
+        width: 50%;
+      }
+
+      th.favourite-price, td.favourite-price {
         width: 30%;
         text-align: center;
       }
