@@ -4,6 +4,8 @@
       %th.favourite-image= Spree.t(:name)
       %th.favourite-description= Spree.t(:name)
       %th.favourite-price= Spree.t(:price)
+      - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
+        %th.favourite-add-to-cart  
   %tbody
     - favourites.each do |favourite|
       %tr
@@ -14,3 +16,6 @@
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description= favourite.name
         %td.favourite-price= display_price(favourite)
+        - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
+          %td.favourite-add-to-cart      
+            = render partial: "spree/shared/quick_cart_add_button", locals: {product: favourite.product}
