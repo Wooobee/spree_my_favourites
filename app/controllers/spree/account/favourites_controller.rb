@@ -16,7 +16,10 @@ module Spree
       private
 
       def check_logged_in_user
-        redirect_to spree_login_path unless try_spree_current_user
+        unless try_spree_current_user
+          session[:spree_user_return_to] = account_favourites_url 
+          redirect_to spree_login_path 
+        end
       end
 
     end
