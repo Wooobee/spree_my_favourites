@@ -10,10 +10,7 @@
     - favourites.each do |favourite|
       %tr
         %td.favourite-image
-          - if favourite.images.length == 0
-            = link_to mini_image(favourite.product), favourite.product
-          - else
-            = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
+          = link_to mini_image(favourite.product), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
