@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_my_favourites'
-  s.version     = '2.2.10'
+  s.version     = '2.4.5'
   s.summary     = 'Adds My Favourites tab to My Account section of the website'
   s.required_ruby_version = '>= 2.0.0'
 
@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 2.2.10'
-  s.add_dependency 'spree_frontend', '~> 2.2.10'
+  s.add_dependency 'spree_core', '~> 2.4.5'
+  s.add_dependency 'spree_frontend', '~> 2.4.5'
 
   s.add_development_dependency 'nokogiri', '=1.6.1'
   s.add_development_dependency 'capybara', '~> 2.1'
