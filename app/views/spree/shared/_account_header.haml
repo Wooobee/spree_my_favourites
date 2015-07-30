@@ -14,5 +14,5 @@
     %ul{class: "nav nav-pills"}
       %li{class: "#{selected == :orders ? 'active' : ''}"}(role="presentation")
         = link_to Spree.t(:my_orders), account_orders_path
-      %li{class: "#{selected == :orders ? 'active' : ''}"}(role="presentation")
+      %li{class: "#{selected == :favourites ? 'active' : ''}"}(role="presentation")
         = link_to Spree.t(:my_favourites), account_favourites_path
