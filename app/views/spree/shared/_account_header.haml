@@ -13,8 +13,6 @@
   .col-md-12
     %ul{class: "nav nav-pills"}
       %li.active(role="presentation")
-        %h3
-          = link_to Spree.t(:my_orders), account_orders_path
+        = link_to Spree.t(:my_orders), account_orders_path
       %li(role="presentation")
-        %h3
-          = link_to Spree.t(:my_favourites), account_favourites_path
+        = link_to Spree.t(:my_favourites), account_favourites_path
