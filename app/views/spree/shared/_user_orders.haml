@@ -1,7 +1,7 @@
 .account-my-orders(data-hook="account_my_orders")
   - if @orders.present?
-    %table.order-summary
-      %thead
+    %table.order-summary{class: "table table-striped "}
+      %thead.active
         %tr
           %th.order-number= I18n.t(:number, :scope => 'activerecord.attributes.spree/order')
           %th.order-date= Spree.t(:date)
@@ -19,4 +19,4 @@
             %td.order-shipment-state= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state
             %td.order-total= order.display_total
   - else
-    %p= Spree.t(:you_have_no_orders_yet)
+    %p{class: "alert alert-info"}= Spree.t(:you_have_no_orders_yet)

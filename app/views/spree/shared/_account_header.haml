@@ -10,12 +10,12 @@
       )
 
 .row
-  .col-md-6
+  .col-md-12
     %nav
       %ul.nav.nav-tabs
-        %li{class: "#{active == :orders ? 'active' : ''}"}
+        %li
           %h3
             = link_to Spree.t(:my_orders), account_orders_path
-        %li{class: "#{active == :favourites ? 'active' : ''}"}
+        %li
           %h3
             = link_to Spree.t(:my_favourites), account_favourites_path
