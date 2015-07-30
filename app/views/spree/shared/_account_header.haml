@@ -12,7 +12,7 @@
 .row
   .col-md-12
     %ul{class: "nav nav-pills"}
-      %li{class: "#{selected == :orders ? 'selected' : ''}"}(role="presentation")
+      %li{class: "#{selected == :orders ? 'active' : ''}"}(role="presentation")
         = link_to Spree.t(:my_orders), account_orders_path
-      %li{class: "#{selected == :orders ? 'selected' : ''}"}(role="presentation")
+      %li{class: "#{selected == :orders ? 'active' : ''}"}(role="presentation")
         = link_to Spree.t(:my_favourites), account_favourites_path
