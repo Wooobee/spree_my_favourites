@@ -12,9 +12,9 @@
 .row
   .col-md-12
     %ul{class: "nav nav-pills"}
-      %li.active
+      %li.active(role="presentation")
         %h3
           = link_to Spree.t(:my_orders), account_orders_path
-      %li
+      %li(role="presentation")
         %h3
           = link_to Spree.t(:my_favourites), account_favourites_path
