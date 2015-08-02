@@ -17,5 +17,5 @@
         %td.favourite-description(data-hook='favourite_name')= favourite.name
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
-          %td.favourite-add-to-cart      
+          %td.favourite-add-to-cart
             = render partial: "spree/shared/quick_cart_add_button", locals: {product: favourite.product}
