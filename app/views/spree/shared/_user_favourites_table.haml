@@ -3,6 +3,8 @@
     %tr
       %th.favourite-image
       %th.favourite-description= Spree.t(:name)
+      %th.favourite-sku= Spree.t(:article_number)
+      %th.favourite-variant= Spree.t(:description)
       %th.favourite-price= Spree.t(:price)
       - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
         %th.favourite-add-to-cart  
@@ -15,6 +17,7 @@
           - else
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
+        %th.favourite-sku= favourite.to_json
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
           %td.favourite-add-to-cart
