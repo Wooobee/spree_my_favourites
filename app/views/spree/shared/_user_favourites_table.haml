@@ -17,7 +17,8 @@
           - else
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
-        %th.favourite-sku= favourite.to_json
+        %th.favourite-sku= favourite.sku
+        %th.favourite-variant= favourite.product.to_json
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
           %td.favourite-add-to-cart
