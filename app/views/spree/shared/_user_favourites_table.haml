@@ -17,8 +17,8 @@
           - else
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
-        %th.favourite-description= favourite.sku
-        %th.favourite-description
+        %th.favourite-options= favourite.sku
+        %th.favourite-options
           - favourite.option_values.each do |opt|
             - if opt.option_type_id != 4
               = opt.presentation + '; '
