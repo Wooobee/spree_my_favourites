@@ -18,7 +18,7 @@
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
         %th.favourite-sku= favourite.sku
-        %th.favourite-variant= <%= tempOptions[Rails.application.config.desc_parameter_id]["name"] unless tempOptions[Rails.application.config.desc_parameter_id]["name"] == 'null'  %> <%= tempOptions[Rails.application.config.size_parameter_id]["name"] unless tempOptions[Rails.application.config.desc_parameter_id]["name"] == 'null'%> 
+        %th.favourite-variant= tempOptions[Rails.application.config.desc_parameter_id]["name"] unless tempOptions[Rails.application.config.desc_parameter_id]["name"] == 'null' 
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
           %td.favourite-add-to-cart
