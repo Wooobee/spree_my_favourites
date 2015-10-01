@@ -18,7 +18,10 @@
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
         %th.favourite-sku= favourite.sku
-        %th.favourite-variant= favourite.option_values.to_json
+        %th.favourite-variant
+          - favourite.option_values.each do |opt|
+            - if opt.option_type_id != 4
+              = opt.presentation + ' '
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
           %td.favourite-add-to-cart
