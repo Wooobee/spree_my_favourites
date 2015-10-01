@@ -10,7 +10,7 @@
         %th.favourite-add-to-cart  
   %tbody
     - favourites.each do |favourite|
-    <% tempOptions = favourite.option_values.index_by(&:option_type_id) %>
+      - tempOptions = favourite.option_values.index_by(&:option_type_id)
       %tr
         %td.favourite-image
           - if favourite.images.length == 0
