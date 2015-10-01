@@ -21,7 +21,7 @@
         %th.favourite-variant
           - favourite.option_values.each do |opt|
             - if opt.option_type_id != 4
-              = opt.presentation + ' '
+              = opt.presentation + '; '
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
           %td.favourite-add-to-cart
