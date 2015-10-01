@@ -10,7 +10,6 @@
         %th.favourite-add-to-cart  
   %tbody
     - favourites.each do |favourite|
-      - tempOptions = favourite.option_values.index_by(&:option_type_id)
       %tr
         %td.favourite-image
           - if favourite.images.length == 0
@@ -19,7 +18,7 @@
             = link_to image_tag(favourite.images.first.attachment.url(:mini)), favourite.product
         %td.favourite-description(data-hook='favourite_name')= favourite.name
         %th.favourite-sku= favourite.sku
-        %th.favourite-variant= tempOptions[Rails.application.config.desc_parameter_id]["name"] unless tempOptions[Rails.application.config.desc_parameter_id]["name"] == 'null' 
+        %th.favourite-variant= favourite.option_values.to_json
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
           %td.favourite-add-to-cart
