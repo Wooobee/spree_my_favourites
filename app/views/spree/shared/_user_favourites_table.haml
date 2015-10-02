@@ -20,7 +20,7 @@
         %th.favourite-options= favourite.sku
         %th.favourite-options
           - favourite.option_values.each do |opt|
-            - if not opt.option_type_id == 4 || not opt.presentation.to_s == "0" || not opt.presentation.to_s == "null" || opt.presentation.to_s != "false"
+            - if not opt.presentation.to_s == "0" 
               = opt.presentation + '; '
         %td.favourite-price= display_price(favourite)
         - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
