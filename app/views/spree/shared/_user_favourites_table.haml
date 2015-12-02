@@ -23,6 +23,5 @@
             - if not opt.presentation.to_s == "0" || opt.presentation.to_s == "null" || opt.presentation.to_s == "true" || opt.presentation.to_s == "false"
               = opt.presentation + '; '
         %td.favourite-price= display_price(favourite)
-        - if SpreeMyFavourites::Config.use_quick_add_to_cart_form
-          %td.favourite-add-to-cart
-            = render partial: "spree/shared/quick_cart_add_button", locals: {product: favourite.product}
+        %td.favourite-add-to-cart
+          = render partial: "spree/shared/quick_cart_add_button", locals: {product: favourite.product}
